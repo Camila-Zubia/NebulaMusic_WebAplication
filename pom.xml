@@ -13,11 +13,70 @@
     </properties>
     
     <dependencies>
+        <!--  JSTL API
+        Permite usar las etiquetas JSTL en JSP como:
+        <c:if>, <c:forEach>, <c:choose>, etc.
+        Solo define la API.  -->
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>${jakartaee}</version>
-            <scope>provided</scope>
+            <groupId>jakarta.servlet.jsp.jstl</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+        <!--  Implementación de JSTL
+        Es la implementación real de las etiquetas JSTL para que funcionen
+        en el servidor (Tomcat).  -->
+        <dependency>
+            <groupId>org.glassfish.web</groupId>
+            <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <!--  Jakarta Persistence API (JPA)
+        Define las interfaces estándar para trabajar con ORM:
+        EntityManager, Entity, @Id, @Table, etc.
+        Hibernate implementa esta API.  -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!--  Hibernate ORM
+        Implementación de JPA que se encarga de mapear
+        las entidades Java con las tablas de la base de datos.  -->
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>6.6.44.Final</version>
+        </dependency>
+        <!--  Driver de MySQL
+        Permite que la aplicación Java se conecte a la base de datos MySQL.  -->
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.4.0</version>
+        </dependency>
+        <!--  Jakarta REST API (JAX-RS)
+        Define las anotaciones para crear servicios REST:
+        @Path, @GET, @POST, @Produces, etc.  -->
+        <dependency>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <!--  Jersey Servlet Container
+        Implementación de Jakarta REST que permite ejecutar
+        servicios REST dentro de un contenedor Servlet como Tomcat.  -->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>3.1.11</version>
+        </dependency>
+        <!--  Jersey HK2
+        Sistema de inyección de dependencias usado por Jersey
+        para manejar servicios REST y sus dependencias.  -->
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-hk2</artifactId>
+            <version>3.1.11</version>
         </dependency>
     </dependencies>
     
