@@ -4,16 +4,21 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page errorPage="/views/error/error.jsp" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <title>Nosotros - Nébula</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="./styles/styles.css"/>
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css"/>
     </head>
     <body>
-        <%@include file="fragments/header.jsp" %>
+        <%
+            if (session.getAttribute("usuario") == null) {
+                response.sendRedirect("/iniciar-sesion.jsp");
+            }
+        %>
+        <%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
         <header> 
             <img src="./imgs/header2.jpg"/>
             <h1>Acerca de nosotros</h1>
@@ -69,6 +74,6 @@
                 </form>
             </section>
         </main>
-        <%@include file="fragments/footer.jsp" %>
+        <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
     </body>
 </html>

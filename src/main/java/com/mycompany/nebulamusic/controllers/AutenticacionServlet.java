@@ -4,6 +4,7 @@
  */
 package com.mycompany.nebulamusic.controllers;
 
+import com.mycompany.nebulamusic.models.Usuario;
 import com.mycompany.nebulamusic.service.IUsuarioService;
 import com.mycompany.nebulamusic.service.UsuarioService;
 import java.io.IOException;
@@ -20,21 +21,28 @@ import jakarta.servlet.http.HttpSession;
  */
 @WebServlet(name = "AutenticacionServlet", urlPatterns = {"/autenticacion"})
 public class AutenticacionServlet extends HttpServlet {
-
+    private final IUsuarioService usuarioService = new UsuarioService();
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String correo = request.getParameter("correo");
         String contra = request.getParameter("contra");
-        IUsuarioService uService = new UsuarioService();
-        boolean valido = uService.autenticar(correo, contra);
-        if (valido) {
+
+        try{
+            Usuario usuario = usuarioService.autenticar(correo, contra);
             HttpSession sesion = request.getSession(true);
-            sesion.setAttribute("usuario", correo);
+            sesion.setAttribute("usuario", usuario);
+            sesion.setAttribute("correo", usuario.getCorreo());
+            sesion.setAttribute("nombre", usuario.getNombre());
+            
             response.sendRedirect(request.getContextPath() + "/index.jsp");
-        }else{
-            response.sendRedirect(request.getContextPath() + "/error.jsp");
+            
+        }catch(IllegalArgumentException e){
+            request.setAttribute("error", e.getMessage());
+            request.getRequestDispatcher("/views/auth/iniciar-ssesion.jsp").forward(request, response);
+        }catch(Exception e){
+            throw new ServletException("Error al autenticar al usuario", e);
         }
     }
     

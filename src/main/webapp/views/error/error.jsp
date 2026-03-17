@@ -4,30 +4,55 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isErrorPage="true" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta name="viewport" charset="UTF-8">
-        <title>Error</title>
-        <link rel="stylesheet" href="./styles/styles.css">
-    </head>
-    <body>
+<head>
+    <title>Error</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/styles.css">
+</head>
 
-        <header>
-            <h1>Error de autenticación</h1>
-        </header>
+<body>
 
-        <main>
-            <p>El correo o la contraseña son incorrectos.</p>
-            <p>Por favor intenta nuevamente.</p>
+<section class="auth-container">
 
-            <h1>No pudiste iniciar sesión, por favor <a href="./inicio_sesion.html">vuelve a intentarlo</a></h1>
-        </main>
+    <div class="auth-card">
 
-        <footer>
-            <p>© Nébula 2025</p>
-        </footer>
+        <div class="form-header">
+            <h3>Algo salió mal</h3>
+            <p class="form-subtitle">
+                No se pudo completar la operación.
+            </p>
+        </div>
 
-    </body>
+        <div class="form-group">
+            <p>
+                Ocurrió un problema al procesar tu solicitud.
+                Intenta nuevamente o vuelve al inicio.
+            </p>
+        </div>
+
+        <div class="form-group">
+            <label>Detalle del error:</label>
+            <p id="error-message">
+                <%= exception != null && exception.getMessage() != null ? exception.getMessage() : "Ocurrio un erroe desconocido al iniciar sesión"%>
+            </p>
+        </div>
+
+        <button class="btn-primary" onclick="location.href='${pageContext.request.contextPath}/views/auth/iniciar-sesion.jsp
+            '">
+            Volver a iniciar sesión
+        </button>
+
+        <button class="btn-secondary" onclick="location.href='${pageContext.request.contextPath}/index.jsp
+            '">
+            Ir al inicio
+        </button>
+
+    </div>
+
+</section>
+
+</body>
 </html>

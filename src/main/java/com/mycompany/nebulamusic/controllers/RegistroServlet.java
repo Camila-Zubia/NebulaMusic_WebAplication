@@ -37,7 +37,7 @@ public class RegistroServlet extends HttpServlet {
             boolean aceptoTerminos = terminos.equals("aceptado");
             
             usuarioService.registrar(nombre, correo, contra, pseudonimo, estado, tipoCuenta, fechaNacimiento, aceptoTerminos);
-            request.setAttribute(terminos, this);
+            request.setAttribute("mensaje", "Registro exitoso. Ahora puedes iniciar sesion");
             request.getRequestDispatcher("/views/auth/iniciar-sesion.jsp").forward(request, response);
         }catch(IllegalArgumentException | ServletException | IOException e){
             throw new ServletException("Error al autenticar usuario", e);

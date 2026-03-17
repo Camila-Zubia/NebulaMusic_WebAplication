@@ -20,4 +20,10 @@ public interface IUsuarioDAO {
     void actualizar(Usuario usuario);
 
     void eliminar(Long id);
+    
+    List<Usuario> listaTop(int limite);
+    
+    List<Usuario> listarPaginado(int pagina, int tamañoPag);
+    
+    long contarUsuarios();
 }

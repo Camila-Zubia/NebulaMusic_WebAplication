@@ -9,6 +9,10 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>iniciar-sesion.html</welcome-file>
+        <welcome-file>/views/auth/iniciar-sesion.jsp</welcome-file>
     </welcome-file-list>
+    <error-page>
+        <exception-type>java.lang.exception</exception-type>
+        <location>/views/error/error.jsp</location>
+    </error-page>
 </web-app>

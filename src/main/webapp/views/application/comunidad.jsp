@@ -4,69 +4,116 @@
     Author     : Usuario
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page errorPage="/views/error/error.jsp" contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
     <head>
-        <title>Nébula music</title>
+        <title>Nosotros - Nébula</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
+
     <body>
-        <%@include file="fragments/header.jsp" %>
-        <main>
-            <section class="comunidad">
-                <h3>Bienvenidos los nuevos usuarios</h3>
-                <div class="tarjetas">
-                    <article class="usuario">
-                        <div class="info-usuario">
-                            <img src="./imgs/user.jpg" alt="Foto de John Wick" />
-                            <div class="texto-usuario">
-                                <h4>John Wick</h4>
-                                <span>john.wick@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="datos-usuario">
-                            <p><strong>Usuario:</strong> johny.kill</p>
-                            <p><strong>Registro:</strong> 11 de septiembre del 2025</p>
-                        </div>
-                        <span class="premium">Premium</span>
-                    </article>
+        <%
+            if (session.getAttribute("usuario") == null) {
+                response.sendRedirect("/iniciar-sesion.jsp");
+            }
+        %>
+        <%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
+        
+        <main class="about-main">
 
-                    <article class="usuario destello">
-                        <div class="info-usuario">
-                            <img src="./imgs/user.jpg" alt="Foto de Steve Rogers" />
-                            <div class="texto-usuario">
-                                <h4>Steve Rogers</h4>
-                                <span>steve.rogers@gmail.com</span>
-                            </div>
-                        </div>
-                        <div class="datos-usuario">
-                            <p><strong>Usuario:</strong> capitan123</p>
-                            <p><strong>Registro:</strong> 09 de agosto del 2025</p>
-                        </div>
-                        <span class="basica">Básica</span>
-                    </article>
+            <!-- PLANES -->
+            <section class="pricing-section">
+                <h2 class="section-title">Planes y precios</h2>
 
-                    <article class="usuario">
-                        <div class="info-usuario">
-                            <img src="./imgs/user.jpg" alt="Foto de Natasha Romanoff" />
-                            <div class="texto-usuario">
-                                <h4>Natasha Romanoff</h4>
-                                <span>black.widow@gmail.com</span>
-                            </div>
+                <div class="pricing-grid">
+
+                    <div class="pricing-card">
+                        <h3>Gratuita</h3>
+                        <p>Obtén lo mejor de la música sin costo, gozando de unos cuantos anuncios.</p>
+
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Música on demand 24/7.</li>
+                            <li>Arma hasta 30 playlists.</li>
+                            <li>Agrega a tus amigos y visualiza su actividad.</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <span class="price">$0</span>
+                            <span class="frecuency">al mes</span>
                         </div>
-                        <div class="datos-usuario">
-                            <p><strong>Usuario:</strong> naty.black</p>
-                            <p><strong>Registro:</strong> 07 de agosto del 2025</p>
+                    </div>
+
+                    <div class="pricing-card popular">
+                        <h3>Básica</h3>
+                        <p>Lo mejor de dos mundos a un costo muy bajo.</p>
+
+                        <h4>Características</h4>
+                        <ul>
+                            <li>Reproduce tu música sin anuncios.</li>
+                            <li>Crea playlists ilimitadas.</li>
+                            <li>Conoce tus tendencias a lo largo del año.</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <span class="price">$75</span>
+                            <span class="frecuency">al mes</span>
                         </div>
-                        <span class="premium">Premium</span>
-                    </article>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Premium</h3>
+                        <p>Tu música con todos los poderes.</p>
+
+                        <h4>Características</h4>
+                        <ul>
+                            <li>10 tokens mensuales para descargar música.</li>
+                            <li>Sonido de mayor calidad.</li>
+                            <li>Acceso anticipado a lanzamientos.</li>
+                        </ul>
+
+                        <div class="price-box">
+                            <span class="price">$150</span>
+                            <span class="frecuency">al mes</span>
+                        </div>
+                    </div>
+
                 </div>
             </section>
-        </main>
 
-        <%@include file="fragments/footer.jsp" %>
 
-    </body>
+        <!-- MAPA -->
+        <section class="map-section">
+            <h2 class="section-title">Visítanos</h2>
+            <div class="map-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.201030798224!2d-109.97440986335279!3d27.49412277197101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86c83e1541796a29%3A0xb25ec95d470fe150!2sEdificio%201800!5e0!3m2!1ses!2smx!4v1758661870295!5m2!1ses!2smx"
+                    allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </section>
+
+
+        <!-- NEWSLETTER -->
+        <section class="newsletter-section">
+            <div class="newsletter-card">
+                <h2>Suscríbete a nuestro newsletter</h2>
+                <form name="newsletter" class="newsletter-form">
+                    <input name="txt_email" placeholder="tucorreo@dominio.com" type="email" required>
+                    <button type="submit" class="btn-primary">
+                        Suscribir
+                    </button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
+</body>
+
 </html>

@@ -193,4 +193,50 @@ public class UsuarioDAO implements IUsuarioDAO {
             em.close();
         }
     }
+
+    @Override
+    public List<Usuario> listaTop(int limite) {
+        EntityManager em = JPAUtil.getInstance().getEntityManager();
+
+        try {
+            TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario ORDER BY u.id DESC", Usuario.class);
+            query.setMaxResults(limite);
+            return query.getResultList();
+        }catch(Exception e){
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public List<Usuario> listarPaginado(int pagina, int tamañoPag) {
+        EntityManager em = JPAUtil.getInstance().getEntityManager();
+
+        try {
+            int inicio = (pagina - 1) * tamañoPag;
+            TypedQuery<Usuario> query = em.createQuery("SELECT u FROM Usuario ORDER BY u.id DESC", Usuario.class);
+            query.setFirstResult(inicio);
+            query.setMaxResults(tamañoPag);
+            return query.getResultList();
+        }catch(Exception e){
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
+
+    @Override
+    public long contarUsuarios() {
+        EntityManager em = JPAUtil.getInstance().getEntityManager();
+
+        try {
+            TypedQuery<Usuario> query = em.createQuery("SELECT COUNT (u) FROM Usuario", Usuario.class);
+            return query.getFirstResult();
+        }catch(Exception e){
+            throw e;
+        } finally {
+            em.close();
+        }
+    }
 }

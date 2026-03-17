@@ -230,5 +230,28 @@ public class UsuarioService implements IUsuarioService{
             throw new IllegalArgumentException("Debes aceptar los términos y condiciones.");
         }
     }
+
+    @Override
+    public List<Usuario> listaTop(int limite) {
+        if (limite < 0) {
+            limite = 10;
+        }
+        return usuarioDAO.listaTop(limite);
+    }
+
+    @Override
+    public List<Usuario> listarPaginado(int pagina, int tamañoPag) {
+        if (pagina < 0) {
+            pagina = 1;
+        }if (tamañoPag < 0) {
+            tamañoPag = 10;
+        }
+        return usuarioDAO.listarPaginado(pagina, tamañoPag);
+    }
+
+    @Override
+    public long contarUsuarios() {
+        return usuarioDAO.contarUsuarios();
+    }
 } 
 
