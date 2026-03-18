@@ -30,171 +30,103 @@
                     Total de ussuario registrados:
                     <strong><c:out value="${requestScope.totalUsuarios}" /></strong>
                 </p>
-                
+
                 <c:if test="${not empty sesssionScope.usuario}">
                     <p>
                         Bienvenido,
                         <strong><c:out value="${sessionScope.usuario.nombre}" /></strong>
                     </p>
-                </c:>
-                    <p>
-                        Aplicacion:
-                        <strong><c:out value="${applicationScope.appNombre}" /></strong>
-                    </p>
+                </c:if>
+                <p>
+                    Aplicacion:
+                    <strong><c:out value="${applicationScope.appNombre}" /></strong>
+                </p>
             </div>
             <c:if test="${empty requestScope.usuarios}">
                 <div style="text-align:center; margin: 30px 0;">
                     <p>No hay usuarios regirados todavía.</p>
                 </div>
             </c:if>
-                        <c:if test="${not empty requestScope.usuarios}">
-                            <div class="users-grid">
-                                <c:forEach var="usuario" items="${requestScope.usuarios}">
-                                    <div class="user-card">
-                                        <div class="user-avatar">
-                                            <img src="${pageContext.requesst.contextPath}/assets/img/user.jpg"
-                                                 alt="${usuario.nombre}">
-                                        </div>
-                                        <div class="user-info">
-                                            <h4>
-                                                <c:out value="${usuario.nombre}" />
-                                            </h4>
-                                            <span class="email">
-                                                <c:out value="${usuario.correo}" />
-                                            </span>
-                                        </div>
-                                            
-                                            <div class="user-data">
-                                                <span>
-                                                    <strong>Usuario:</strong>
-                                                    <c:out value="${usuario.estado}" />
-                                                </span>
-                                                <span>
-                                                    <strong>Fecha de nacimiento:</strong>
-                                                    <c:out value="${usuario.fechaNacimiento}" />
-                                                </span>
-                                                
-                                                           <c:choose>
-                                                               <c:when test="${usuario.cuenta eq 'premium'}">
-                                                                   <span class="badge premium">Premium</span>
-                                                               </c:when>
-                                                               <c:when test="${usuario.cuenta eq 'basica'}">
-                                                                   <span class="badge basic">Básica</span>
-                                                               </c:when>
-                                                               <c:otherwise>
-                                                                   <span class="badge free">Gratis</span>
-                                                               </c:otherwise> 
-                                                           </c:choose>
-                                                               <c:if test="${not empty sessionScope.usuario and sessionScope.usuario.correo eq usuario.correo}" />
-                                                               <span class="badge" style="backgfround-color: @d4edda; color: @155724;">
-                                                                   Este eres tú
-                                                               </span>
-                                                    </c:if>
-                                                                   
-                                            </div>
-                                    </div>
-                            </c:forEach>
+            <c:if test="${not empty requestScope.usuarios}">
+                <div class="users-grid">
+                    <c:forEach var="usuario" items="${requestScope.usuarios}">
+                        <div class="user-card">
+                            <div class="user-avatar">
+                                <img src="${pageContext.requesst.contextPath}/assets/img/user.jpg"
+                                     alt="${usuario.nombre}">
                             </div>
-                        </c:if>
-                    
-                    <div class="paginacion" style="text-align: center;margin-top: 30px">
-                        <c:if test="${requestScope.paginaActual > 1}"> 
-                            <a>
-                                Anterior
-                            </a>
-                        </c:if>
-                    </div>
-        </section>
-        <main class="about-main">
+                            <div class="user-info">
+                                <h4>
+                                    <c:out value="${usuario.nombre}" />
+                                </h4>
+                                <span class="email">
+                                    <c:out value="${usuario.correo}" />
+                                </span>
+                            </div>
 
-            <!-- PLANES -->
-            <section class="pricing-section">
-                <h2 class="section-title">Planes y precios</h2>
+                            <div class="user-data">
+                                <span>
+                                    <strong>Usuario:</strong>
+                                    <c:out value="${usuario.estado}" />
+                                </span>
+                                <span>
+                                    <strong>Fecha de nacimiento:</strong>
+                                    <c:out value="${usuario.fechaNacimiento}" />
+                                </span>
 
-                <div class="pricing-grid">
+                                <c:choose>
+                                    <c:when test="${usuario.cuenta eq 'premium'}">
+                                        <span class="badge premium">Premium</span>
+                                    </c:when>
+                                    <c:when test="${usuario.cuenta eq 'basica'}">
+                                        <span class="badge basic">Básica</span>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <span class="badge free">Gratis</span>
+                                    </c:otherwise> 
+                                </c:choose>
+                                <c:if test="${not empty sessionScope.usuario and sessionScope.usuario.correo eq usuario.correo}" >
+                                    <span class="badge" style="backgfround-color: #d4edda; color: #155724;">
+                                        Este eres tú
+                                    </span>
+                                </c:if>
 
-                    <div class="pricing-card">
-                        <h3>Gratuita</h3>
-                        <p>Obtén lo mejor de la música sin costo, gozando de unos cuantos anuncios.</p>
-
-                        <h4>Características</h4>
-                        <ul>
-                            <li>Música on demand 24/7.</li>
-                            <li>Arma hasta 30 playlists.</li>
-                            <li>Agrega a tus amigos y visualiza su actividad.</li>
-                        </ul>
-
-                        <div class="price-box">
-                            <span class="price">$0</span>
-                            <span class="frecuency">al mes</span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="pricing-card popular">
-                        <h3>Básica</h3>
-                        <p>Lo mejor de dos mundos a un costo muy bajo.</p>
-
-                        <h4>Características</h4>
-                        <ul>
-                            <li>Reproduce tu música sin anuncios.</li>
-                            <li>Crea playlists ilimitadas.</li>
-                            <li>Conoce tus tendencias a lo largo del año.</li>
-                        </ul>
-
-                        <div class="price-box">
-                            <span class="price">$75</span>
-                            <span class="frecuency">al mes</span>
-                        </div>
-                    </div>
-
-                    <div class="pricing-card">
-                        <h3>Premium</h3>
-                        <p>Tu música con todos los poderes.</p>
-
-                        <h4>Características</h4>
-                        <ul>
-                            <li>10 tokens mensuales para descargar música.</li>
-                            <li>Sonido de mayor calidad.</li>
-                            <li>Acceso anticipado a lanzamientos.</li>
-                        </ul>
-
-                        <div class="price-box">
-                            <span class="price">$150</span>
-                            <span class="frecuency">al mes</span>
-                        </div>
-                    </div>
-
+                    </c:forEach>
                 </div>
-            </section>
+            </c:if>
 
+            <div class="paginacion" style="text-align: center;margin-top: 30px">
+                <c:if test="${requestScope.paginaActual > 1}"> 
+                    <a href="${pageContext.request.contextPath}/comunidad?pagina=${requestScope.paginaActual - 1}" style="margin: 0 8px">
+                        Anterior
+                    </a>
+                </c:if>
 
-        <!-- MAPA -->
-        <section class="map-section">
-            <h2 class="section-title">Visítanos</h2>
-            <div class="map-wrapper">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539.201030798224!2d-109.97440986335279!3d27.49412277197101!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86c83e1541796a29%3A0xb25ec95d470fe150!2sEdificio%201800!5e0!3m2!1ses!2smx!4v1758661870295!5m2!1ses!2smx"
-                    allowfullscreen="" loading="lazy">
-                </iframe>
+                <c:forEach var="1" begin="1" end="${requestScope.totalPaginas}">
+                    <c:choose>
+                        <c:when test="${i == requestScope.paginaActual}">
+                            <span style="margin: 0 6px; font-weight: bold; text-decoration: underline;">
+                                <c:out value="${i}" />
+                            </span>
+                        </c:when>
+                        <c:otherwise>
+                            <a href="${pageContext.request.contextPath}/comunidad?pagina=${i}" style="margin: 0 6px;">
+                                <c:out value="${i}" />
+                            </a>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+                <c:if test="${requestScope.paginaActual < requestScope.totalPaginas}">
+                    <a href="${pageContext.request.contextPath}/comunidad?pagina=${requestScope.paginaActual + 1}" style="margin: 0 8px">
+                        Siguiente
+
+                    </a>
+                </c:if>
             </div>
-        </section>
 
-
-        <!-- NEWSLETTER -->
-        <section class="newsletter-section">
-            <div class="newsletter-card">
-                <h2>Suscríbete a nuestro newsletter</h2>
-                <form name="newsletter" class="newsletter-form">
-                    <input name="txt_email" placeholder="tucorreo@dominio.com" type="email" required>
-                    <button type="submit" class="btn-primary">
-                        Suscribir
-                    </button>
-                </form>
-            </div>
-        </section>
-
-    </main>
-    <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
-</body>
+            <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
+    </body>
 
 </html>

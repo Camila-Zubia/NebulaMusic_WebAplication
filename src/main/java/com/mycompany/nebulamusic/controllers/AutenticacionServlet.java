@@ -4,9 +4,9 @@
  */
 package com.mycompany.nebulamusic.controllers;
 
-import com.mycompany.nebulamusic.models.Usuario;
 import com.mycompany.nebulamusic.service.IUsuarioService;
 import com.mycompany.nebulamusic.service.UsuarioService;
+import com.mycompany.nubulamusicwebaplication.model.Usuario;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -30,7 +30,7 @@ public class AutenticacionServlet extends HttpServlet {
         String contra = request.getParameter("contra");
 
         try{
-            Usuario usuario = usuarioService.autenticar(correo, contra);
+            Usuario usuario = (Usuario) usuarioService.autenticar(correo, contra);
             HttpSession sesionAnterior = request.getSession(false);
             if (sesionAnterior != null) {
                 sesionAnterior.invalidate();
@@ -43,8 +43,8 @@ public class AutenticacionServlet extends HttpServlet {
             
         }catch(IllegalArgumentException e){
             request.setAttribute("error", e.getMessage());
-            request.getRequestDispatcher("/views/auth/iniciar-ssesion.jsp").forward(request, response);
-        }catch(Exception e){
+            request.getRequestDispatcher("/views/auth/iniciar-sesion.jsp").forward(request, response);
+        }catch(IOException e){
             throw new ServletException("Error al autenticar al usuario", e);
         }
     }

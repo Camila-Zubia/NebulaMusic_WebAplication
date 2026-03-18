@@ -34,7 +34,7 @@ public class AuthFilter implements Filter {
         if (logedIn || loginRequest || resourceStaticRequest || path.endsWith("tyc.jsp")) {
             chain.doFilter(request, response);
         }else{
-            res.sendRedirect(req.getContextPath() + "/views/auth/iniciar-ssesion.jsp");
+            res.sendRedirect(req.getContextPath() + "/views/auth/iniciar-sesion.jsp");
         }
     }
 }

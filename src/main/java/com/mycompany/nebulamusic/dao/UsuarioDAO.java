@@ -1,7 +1,7 @@
 package com.mycompany.nebulamusic.dao;
 
-import com.mycompany.nebulamusic.models.Usuario;
 import com.mycompany.nebulamusic.util.JPAUtil;
+import com.mycompany.nubulamusicwebaplication.model.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.TypedQuery;

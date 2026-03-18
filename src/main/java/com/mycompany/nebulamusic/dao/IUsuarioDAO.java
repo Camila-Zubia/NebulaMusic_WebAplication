@@ -1,6 +1,6 @@
 package com.mycompany.nebulamusic.dao;
 
-import com.mycompany.nebulamusic.models.Usuario;
+import com.mycompany.nubulamusicwebaplication.model.Usuario;
 import java.util.List;
 
 public interface IUsuarioDAO {

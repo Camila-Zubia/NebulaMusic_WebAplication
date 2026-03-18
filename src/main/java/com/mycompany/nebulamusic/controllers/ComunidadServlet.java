@@ -4,9 +4,9 @@
  */
 package com.mycompany.nebulamusic.controllers;
 
-import com.mycompany.nebulamusic.models.Usuario;
 import com.mycompany.nebulamusic.service.IUsuarioService;
 import com.mycompany.nebulamusic.service.UsuarioService;
+import com.mycompany.nubulamusicwebaplication.model.Usuario;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

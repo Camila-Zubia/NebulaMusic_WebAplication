@@ -1,6 +1,6 @@
 package com.mycompany.nebulamusic.service;
 
-import com.mycompany.nebulamusic.models.Usuario;
+import com.mycompany.nubulamusicwebaplication.model.Usuario;
 import java.time.LocalDate;
 import java.util.List;
 
