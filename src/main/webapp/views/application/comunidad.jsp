@@ -98,8 +98,10 @@
                         </c:if>
                     
                     <div class="paginacion" style="text-align: center;margin-top: 30px">
-                        <c:if test="${}">
-                            
+                        <c:if test="${requestScope.paginaActual > 1}"> 
+                            <a>
+                                Anterior
+                            </a>
                         </c:if>
                     </div>
         </section>
