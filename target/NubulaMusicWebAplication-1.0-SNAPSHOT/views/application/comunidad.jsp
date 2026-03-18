@@ -23,7 +23,22 @@
             }
         %>
         <%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
-        
+        <section>
+            <div style="text-align:center; margin-bottom: 20px;">
+                <p>
+                    Total de ussuario registrados:
+                    <strong><c:out value="${requestScope.totalUsuarios}" /></strong>
+                </p>
+                
+                <c: if test="${not empty sesssionScope.usuario}">
+                    <p>
+                        Bienvenido,
+                        <strong><c:out value="${sessionScope.usuario.nombre}" /></strong>
+                    </p>
+                </c:>
+                    <p>
+            </div>
+        </section>
         <main class="about-main">
 
             <!-- PLANES -->
