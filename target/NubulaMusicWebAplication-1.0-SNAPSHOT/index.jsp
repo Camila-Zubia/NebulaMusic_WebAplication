@@ -23,8 +23,8 @@
             }
         %>
     <%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
-    <c:if test="${sesion.getAtribute("usuario") != null}">
-        <h2>Bienvenido ${sesion.getAtribute("usuario")}</h2>
+    <c:if test="${sessionScope.usuario != null}">
+        <h2>Bienvenido ${sessionScope.usuario.correo}</h2>
     </c:if>
     <header class="principal hero">
         <img src="./imgs/cover.jpg" />
