@@ -30,8 +30,9 @@ public class AuthFilter implements Filter {
         HttpSession sesion = req.getSession(false);
         boolean logedIn = (sesion != null && sesion.getAttribute("usuario") != null);
         boolean loginRequest = path.contains("iniciar-sesion.jsp") || path.contains("registro.jsp") || path.contains("autenticacion");
+        boolean apiRequest = path.contains("/api/");
         boolean resourceStaticRequest = path.contains("/assets/") || path.contains("css") || path.contains("img");
-        if (logedIn || loginRequest || resourceStaticRequest || path.endsWith("tyc.jsp")) {
+        if (apiRequest||logedIn || loginRequest || resourceStaticRequest || path.endsWith("tyc.jsp")) {
             chain.doFilter(request, response);
         }else{
             res.sendRedirect(req.getContextPath() + "/views/auth/iniciar-sesion.jsp");
