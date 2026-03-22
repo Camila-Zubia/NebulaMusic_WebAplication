@@ -1,10 +1,21 @@
-<%-- 
-    Document   : tyc
-    Created on : 5 mar 2026, 6:28:15 p.m.
-    Author     : Usuario
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Términos y condiciones - Nébula</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css"/>
+</head>
+
+<body>
+    <%@include file="/WEB-INF/jsp/fragments/header.jspf" %>
+    <header>
+        <img src="${pageContext.request.contextPath}/assets/img/header2.jpg" />
+        <h1>Términos y condiciones</h1>
+    </header>
+    <main>
+        <ol>
             <li>Este sitio ha sido creado para la materia de aplicaciones web. Ninguna promoción o información es real.
             </li>
             <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean placerat lacus id mi aliquam imperdiet.
@@ -12,7 +23,7 @@
                 ullamcorper libero tempor, vulputate elit a, mattis dolor. Nunc tristique nunc in semper mattis. Cras
                 sit amet dignissim eros. Curabitur massa orci, iaculis in quam vel, condimentum molestie justo.
                 Phasellus condimentum diam nec diam pretium, in imperdiet ligula pharetra. Nunc rutrum pretium justo.
-                Mauris commodo enim eu odio commodo, vitae consectetur tortor efficitur. Nunc id aliquet sapien. Integer
+                Mauris commodo enim eu osdio commodo, vitae consectetur tortor efficitur. Nunc id aliquet sapien. Integer
                 et nisi sit amet mi condimentum cursus. Praesent venenatis viverra nunc, placerat placerat nibh
                 pellentesque non.</li>
             <li>Proin varius arcu quis mattis ornare. Etiam eget erat eu odio maximus dignissim. Suspendisse pulvinar
@@ -33,7 +44,7 @@
         </ol>
     </main>
 
-    <%@include file="/WEB-INF/jsp/fragments/footer.jsp" %>
+     <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
 </body>
 
 </html>

@@ -52,7 +52,7 @@
                     <c:forEach var="usuario" items="${requestScope.usuarios}">
                         <div class="user-card">
                             <div class="user-avatar">
-                                <img src="${pageContext.requesst.contextPath}/assets/img/user.jpg"
+                                <img src="${pageContext.request.contextPath}/assets/img/user.jpg"
                                      alt="${usuario.nombre}">
                             </div>
                             <div class="user-info">
@@ -86,7 +86,7 @@
                                     </c:otherwise> 
                                 </c:choose>
                                 <c:if test="${not empty sessionScope.usuario and sessionScope.usuario.correo eq usuario.correo}" >
-                                    <span class="badge" style="backgfround-color: #d4edda; color: #155724;">
+                                    <span class="badge" style="background-color: #d4edda; color: #155724;">
                                         Este eres tú
                                     </span>
                                 </c:if>
@@ -125,8 +125,8 @@
                     </a>
                 </c:if>
             </div>
-
-            <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
+        </section>
+        <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
     </body>
 
 </html>

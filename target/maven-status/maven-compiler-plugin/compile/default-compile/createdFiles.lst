@@ -16,7 +16,6 @@ com\mycompany\nebulamusic\apirest\UsuarioAPIServlet.class
 com\mycompany\nebulamusic\controllers\RegistroServlet.class
 com\mycompany\nebulamusic\service\IAlbumService.class
 com\mycompany\nubulamusicwebaplication\model\Album.class
-com\mycompany\nebulamusic\dtos\ApiResponse.class
 com\mycompany\nebulamusic\service\UsuarioService.class
 com\mycompany\nebulamusic\controllers\AlbumServlet.class
 com\mycompany\nebulamusic\JakartaRestConfiguration.class

@@ -10,7 +10,7 @@
 <head>
     <title>Error</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css"/>
 </head>
 
 <body>

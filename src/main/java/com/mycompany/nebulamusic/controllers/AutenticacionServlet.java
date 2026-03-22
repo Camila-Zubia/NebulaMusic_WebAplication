@@ -7,13 +7,13 @@ package com.mycompany.nebulamusic.controllers;
 import com.mycompany.nebulamusic.service.IUsuarioService;
 import com.mycompany.nebulamusic.service.UsuarioService;
 import com.mycompany.nubulamusicwebaplication.model.Usuario;
-import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  *
@@ -27,7 +27,7 @@ public class AutenticacionServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String correo = request.getParameter("correo");
-        String contra = request.getParameter("contra");
+        String contra = request.getParameter("contrasenia");
 
         try{
             Usuario usuario = (Usuario) usuarioService.autenticar(correo, contra);

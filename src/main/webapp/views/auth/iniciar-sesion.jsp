@@ -11,7 +11,7 @@
         <title>Nébula music</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- NECESARIO para que funcione el diseño responsive (Mobile First) -->
-        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css">
+        <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/styles.css"/>
     </head>
     <body>
         <main class="auth-container">
@@ -19,15 +19,15 @@
             <section class="auth-card">
 
                 <form class="auth-form"
-                    name="form_iniciar_sesion" 
-                    method="post" 
-                    action="${pageContext.request.contextPath}/autenticacion"
-                    enctype="application/x-www-form-urlencoded">
+                      name="form_iniciar_sesion" 
+                      method="post" 
+                      action="${pageContext.request.contextPath}/autenticacion"
+                      enctype="application/x-www-form-urlencoded">
 
                     <div name="logo_usuario" class="form-logo">
                         <img src="${pageContext.request.contextPath}/assets/img/nebula-03.svg" alt="Logo de nebula music">
                     </div>
-                    
+
                     <div name="titulo" class="form-header">
                         <h3>Inicia sesión</h3>
                         <span class="form-subtitle">Utiliza tus credenciales para iniciar</span>
@@ -51,6 +51,5 @@
             </section>
         </main>
         <%@include file="/WEB-INF/jsp/fragments/footer.jspf" %>
-
     </body>
 </html>

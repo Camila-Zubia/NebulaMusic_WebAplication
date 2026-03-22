@@ -11,5 +11,5 @@
     </div>
 
     <p>Copyright Nébula 2025.</p>
-    <a href="./tyc.jsp" target="_blank">Términos y condiciones</a>
+    <a href="${pageContext.request.contextPath}/views/application/tyc.jsp" target="_blank">Términos y condiciones</a>
 </footer>

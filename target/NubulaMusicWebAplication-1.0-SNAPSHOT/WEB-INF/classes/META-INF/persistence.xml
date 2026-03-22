@@ -8,13 +8,13 @@
     <persistence-unit name="NubulaMusicPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.mycompany.nebulamusic.models.Usuario</class>
+        <class>com.mycompany.nubulamusicwebaplication.model.Usuario</class>
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nebulamusic_db?useSSL=false&amp;serverTimezone=UTC"/>
-            <property name="jakarta.persistence.jdbc.user" value="tu-usuario"/>
-            <property name="jakarta.persistence.jdbc.password" value="tu-contraseña"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/nebulamusic_db?useSSL=false&amp;serverTimezone=UTC&amp;allowPublicKeyRetrieval=true"/>
+            <property name="jakarta.persistence.jdbc.user" value="root"/>
+            <property name="jakarta.persistence.jdbc.password" value="Camila1504"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>

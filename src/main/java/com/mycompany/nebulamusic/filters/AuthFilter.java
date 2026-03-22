@@ -4,7 +4,6 @@
  */
 package com.mycompany.nebulamusic.filters;
 
-import java.io.IOException;
 import jakarta.servlet.Filter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -14,6 +13,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
 
 /**
  *
@@ -29,9 +29,13 @@ public class AuthFilter implements Filter {
         String path = req.getRequestURI();
         HttpSession sesion = req.getSession(false);
         boolean logedIn = (sesion != null && sesion.getAttribute("usuario") != null);
-        boolean loginRequest = path.contains("iniciar-sesion.jsp") || path.contains("registro.jsp") || path.contains("autenticacion");
-        boolean apiRequest = path.contains("/api/");
+        boolean loginRequest = path.contains("iniciar-sesion.jsp") || path.contains("registro.jsp") || path.contains("autenticacion") || path.contains("/registro");
+        boolean apiRequest = path.startsWith("/api/");
         boolean resourceStaticRequest = path.contains("/assets/") || path.contains("css") || path.contains("img");
+        if (path.startsWith(req.getContextPath() + "/api/")) {
+            chain.doFilter(request, response);
+            return;
+        }
         if (apiRequest||logedIn || loginRequest || resourceStaticRequest || path.endsWith("tyc.jsp")) {
             chain.doFilter(request, response);
         }else{

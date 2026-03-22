@@ -2,24 +2,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <nav class="main-nav">
 
-    <a class="logo" href="./index.jsp">
-        <img src="./imgs/nebula-03.svg">
+    <a class="logo" href="${pageContext.request.contextPath}/index.jsp">
+        <img src="${pageContext.request.contextPath}/assets/img/nebula-03.svg">
     </a>
-    <input type="checkbox" id="menu-toggle" hidden>
-    <label for="menu-toggle" class="menu-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-    </label>
     <ul class="nav-links">
-        <li>
-            <a href="./about.jsp">Nosotros</a>
-        </li>
-        <li>
-            <a href="./comunidad.jsp">Comunidad</a>
-        </li>
-        <li>
-            <a href="./iniciar-sesion.jsp">Iniciar Sesión</a>
-        </li>
+        <li><a href="${pageContext.request.contextPath}/views/application/about.jsp">Nosotros</a></li>
+        <li><a href="${pageContext.request.contextPath}/comunidad">Comunidad</a></li>
+        <li><a href="${pageContext.request.contextPath}/views/auth/iniciar-sesion.jsp">Iniciar Sesión</a></li>
     </ul>
 </nav>
