@@ -1,0 +1,21 @@
+{
+	"info": {
+		"_postman_id": "54d07a51-871d-4f84-9fd4-7a007514dce5",
+		"name": "NebulaAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"id": "743394af-1370-4179-a6ff-ca774c3b4409",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
