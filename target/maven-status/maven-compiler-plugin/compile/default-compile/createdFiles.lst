@@ -1,6 +1,7 @@
 com\mycompany\nebulamusic\filters\AuthFilter.class
 com\mycompany\nebulamusic\dao\IAlbumDAO.class
 com\mycompany\nebulamusic\dao\UsuarioDAO.class
+com\mycompany\nebulamusic\apirest\AuthServletAPI.class
 com\mycompany\nebulamusic\controllers\ComunidadServlet.class
 com\mycompany\nebulamusic\dao\IUsuarioDAO.class
 com\mycompany\nebulamusic\util\JPAUtil.class
@@ -11,8 +12,10 @@ com\mycompany\nebulamusic\dtos\ResponseMessageDTO.class
 com\mycompany\nebulamusic\dtos\UsuarioRequestDTO.class
 com\mycompany\nebulamusic\util\JSONMapper.class
 com\mycompany\nebulamusic\service\IUsuarioService.class
+com\mycompany\nebulamusic\util\JWTUtil.class
 com\mycompany\nebulamusic\resources\JakartaEE10Resource.class
 com\mycompany\nebulamusic\apirest\UsuarioAPIServlet.class
+com\mycompany\nebulamusic\dtos\UsuarioAuthDTO.class
 com\mycompany\nebulamusic\controllers\RegistroServlet.class
 com\mycompany\nebulamusic\service\IAlbumService.class
 com\mycompany\nubulamusicwebaplication\model\Album.class
