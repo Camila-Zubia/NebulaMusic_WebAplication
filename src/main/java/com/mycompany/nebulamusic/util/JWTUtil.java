@@ -15,7 +15,7 @@ import javax.crypto.SecretKey;
  */
 public class JWTUtil {
 
-    private static final String SECRET = "mi_super_secreto_123456789";
+    private static final String SECRET = "mi_super_secreta_firma_jwt_1234567891011";
     private static final SecretKey KEY = Keys.hmacShaKeyFor(SECRET.getBytes());
 
     public static String generarToken(String usuario) {
