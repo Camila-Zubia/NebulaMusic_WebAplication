@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "New Request",
+			"name": "ObtenerToken",
 			"id": "743394af-1370-4179-a6ff-ca774c3b4409",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -16,7 +16,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"correo\" : \"juan.lopez@gmail.com\" ,\r\n    \"contrasenia\" : \"Juan1234\"\r\n}",
+					"raw": "{\r\n    \"correo\" : \"juan.lopez@gmail.com\" ,\r\n    \"contra\" : \"Juan1234\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -28,14 +28,25 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "ObtenerUsuarios",
 			"id": "73fcf41c-c4a6-46b1-a6e0-00d147633ec1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "\teyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqdWFuLmxvcGV6QGdtYWlsLmNvbSIsImlhdCI6MTc3NDY2NzU2MSwiZXhwIjoxNzc0NjcxMTYxfQ.kDADKr1XSE6IIOjcDsbC4C4ICl4eKvHjmW5GG0q9uBY"
+					}
+				},
 				"method": "GET",
-				"header": []
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/NubulaMusicWebAplication/api/usuarios"
 			},
 			"response": []
 		}
