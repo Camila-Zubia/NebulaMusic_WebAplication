@@ -22,7 +22,7 @@ import java.io.IOException;
  *
  * @author Usuario
  */
-@WebServlet(name = "AuthServletAPI", urlPatterns = {"/api/auth/login"})
+@WebServlet(name = "AuthServletAPI", urlPatterns = {"/api/auth/*"})
 public class AuthServletAPI extends HttpServlet {
 
     private final IUsuarioService usuarioService = new UsuarioService();
