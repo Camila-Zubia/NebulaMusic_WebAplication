@@ -26,6 +26,18 @@
 				"url": "http://localhost:8080/NubulaMusicWebAplication/api/auth/"
 			},
 			"response": []
+		},
+		{
+			"name": "New Request",
+			"id": "73fcf41c-c4a6-46b1-a6e0-00d147633ec1",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
